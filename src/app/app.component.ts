@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crudClient';
+  apiUrl = 'http://localhost:3000'
+  constructor(private http: HttpClient){
+
+  }
+  insert(id: any,firstname: any,lastname: any){
+    this.http.post<any[]>(this.apiUrl+"/details",{
+      id:id,
+    firstname:firstname,
+    lastname:lastname}).subscribe(data => 
+      console.log(data));
+
+    console.log("data inserted !");
+    
+  }
+  getData(){
+    this.http.get<any[]>(this.apiUrl+"/details").subscribe(data => 
+      alert(JSON.stringify(data)));
+      
+  }
 }
