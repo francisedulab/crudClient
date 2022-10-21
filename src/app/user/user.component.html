@@ -1,33 +1,32 @@
 <form [formGroup]="userForm" #formDir="ngForm">
 
-    <div class="form-group">
-        <label for="name">ID</label>
-        <input
-          type="text"
-          id="idinp"
-          class="form-control"
-          formControlName="id"
-          required
-        />
-
-        <!-- <label for="name">Firstame</label>
-        <input
-          type="text"
-          id="name"
-          class="form-control"
-          formControlName="firstName"
-          required
-        /> -->
-
-        <!-- <div
-          *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
-          class="alert alert-danger"
-        >
-          <div *ngIf="firstName.errors?.['required']">Name is required.</div>
-          <div *ngIf="firstName.errors?.['minlength']">
-            Name must be at least 4 characters long.
-          </div>
-        </div> -->
+  <div class="form-group">
+    <div><label for="name">ID </label><i class="fa-solid fa-id-card fa-2xl"></i>
+      <input #id value="" type="text" id="idinp" class="form-control" formControlName="id" required />
+      <div *ngIf="Id.errors?.['pattern'] && (Id.dirty || Id.touched)" class="alert alert-danger">
+        Number Only</div>
+    </div><br>
+    <div>
+      <label for="name">FirstName</label>
+      <input #fn value="" type="text" id="fname" class="form-control" formControlName="firstName" required />
+      <div *ngIf="FirstName.errors?.['pattern'] && (FirstName.dirty || FirstName.touched)" class="alert alert-danger">
+        Alphabates Only
       </div>
+    </div><br>
+    <div>
+      <label for="name">LastName</label>
+      <input #ln value="" type="text" id="lname" class="form-control" formControlName="lastName" required />
+      <div *ngIf="LastName.errors?.['pattern'] && (LastName.dirty || LastName.touched)" class="alert alert-danger">
+        Alphabates Only
+      </div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid" (click)="insert(id.value,fn.value,ln.value)">Submit</button>&nbsp;
+  <button type="reset">Reset</button>
+
 
 </form>
+<span class="fa-layers fa-fw" style="background:MistyRose">
+  <i class="fa-solid fa-calendar fa-2xl"></i>
+  <span class="fa-layers-text fa-inverse" data-fa-transform="shrink-8 down-3" style="font-weight:900">19</span>
+</span>
