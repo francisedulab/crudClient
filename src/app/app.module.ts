@@ -8,6 +8,7 @@ import { UserComponent } from './user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { UserReadComponent } from './user-read/user-read.component';
+import { ApiserviceService } from './apiservice.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { UserReadComponent } from './user-read/user-read.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
