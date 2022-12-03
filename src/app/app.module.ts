@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { UserReadComponent } from './user-read/user-read.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     NotfoundComponent,
+    UserReadComponent,
   ],
   imports: [
     BrowserModule,
